@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { Form } from '../form';
-import { BaseInput } from '../base-input';
 import { Button } from '../button';
 import { generateForm } from '@/lib/form';
 import { z } from 'zod';
 import { Input } from '../input';
 import { useToast } from "@/components/ui/use-toast"
 import { sendDiscordMessage } from '@/app/_actions/discord';
+import Editor from '../editor';
 
 
 
@@ -16,7 +16,8 @@ const FormDemo = () => {
 	const { form, schema } = generateForm({
 		schema: z.object({
 			name: z.string().min(1),
-			email: z.string().email('Please enter a valid email'),}
+			email: z.string().email('Please enter a valid email'),
+			editor: z.string().min(20),}
 		)
 			
 	});
@@ -60,6 +61,12 @@ const FormDemo = () => {
 					field='email'
 					control={form.control}
 					placeholder='paul@gmail.com'
+				/>
+				<Editor
+				label='Type a long message'
+				field='editor'
+				control={form.control}
+				
 				/>
 				
 
