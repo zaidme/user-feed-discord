@@ -1,13 +1,8 @@
-import React from 'react';
-import Demo from '@/components/ui/demo/demo';
-import { sendDiscordMessage } from "@/app/_actions/discord"
+import React from "react";
+import SubmissionModal from "@/components/ui/pages/submission-modal";
 
 const page = async () => {
-  
+  return <SubmissionModal/>;
+};
 
-  return(
-	<Demo/>
-  )
-}
-
-export default page
+export default page;
