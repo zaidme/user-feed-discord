@@ -2,11 +2,11 @@
 
 
 
-export const sendDiscordMessage = async (data: {name: string, email:string, editor: string}) => {
+export const sendDiscordMessage = async (data: {name: string,editor: string}) => {
   try {
-    const { name, email, editor } = data;
+    const { name, editor } = data;
  
-    const message = `Name: ${name}\nEmail: ${email}\nMessage: ${editor}`;
+    const message = `Name: ${name}\nMessage: ${editor}`;
 
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
     

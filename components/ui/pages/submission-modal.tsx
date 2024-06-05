@@ -14,23 +14,22 @@ import {
 
 const SubmissionModal = () => {
   return (
-	<div className="flex justify-center items-center h-screen">
-    <div className="flex flex-wrap items-start gap-4 overflow-auto py-10">
+    <div className="flex justify-center items-center min-h-screen overflow-auto">
       <Dialog>
-        <DialogTrigger><Button> Open </Button></DialogTrigger>
-        <DialogContent>
+        <DialogTrigger>
+          Send Message
+        </DialogTrigger>
+        <DialogContent className="w-full max-w-md mx-4 my-6 p-6 bg-white rounded-lg shadow-lg">
           <DialogHeader>
-            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogTitle>Message Zaid.</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              Fill out the form with your request.
             </DialogDescription>
           </DialogHeader>
           <SubmissionForm />
         </DialogContent>
       </Dialog>
     </div>
-	</div>
   );
 };
 

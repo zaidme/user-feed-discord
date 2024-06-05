@@ -21,7 +21,6 @@ const SubmissionForm = () => {
   const { form, schema } = generateForm({
     schema: z.object({
       name: z.string().min(1),
-      email: z.string().email("Please enter a valid email"),
       editor: z.string().min(20),
     }),
   });
@@ -46,7 +45,6 @@ const SubmissionForm = () => {
 
   return (
     <div>
-      <p className="mb-5">Ughhghgh</p>
       <Form
         form={form}
         onSubmit={form.handleSubmit(onSubmit)}
@@ -57,16 +55,9 @@ const SubmissionForm = () => {
           type="name"
           field="name"
           control={form.control}
-          placeholder="Paul Atreides"
-        />
-        <Input
-          label="Email"
-          field="email"
-          control={form.control}
-          placeholder="paul@gmail.com"
         />
         <Editor
-          label="Type a long message"
+          label="Request Details"
           field="editor"
           control={form.control}
         />
