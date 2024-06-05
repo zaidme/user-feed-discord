@@ -1,7 +1,12 @@
 "use server"
 
-export const sendDiscordMessage = async (message: string) => {
+
+
+export const sendDiscordMessage = async (data: {name: string, email:string, editor: string}) => {
   try {
+    const { name, email, editor } = data;
+ 
+    const message = `Name: ${name}\nEmail: ${email}\nMessage: ${editor}`;
     // A fetch request to send data through the discord
     // webhook, and display it as a message in your
     // discord channel
@@ -11,7 +16,7 @@ export const sendDiscordMessage = async (message: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: message,
+        content:message,
       }),
     })
   } catch (err: any) {
