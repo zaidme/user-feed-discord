@@ -8,39 +8,10 @@ import { generateForm } from '@/lib/form';
 import { z } from 'zod';
 import { Input } from '../input';
 import { useToast } from "@/components/ui/use-toast"
+import { sendDiscordMessage } from '@/app/_actions/discord';
 
 
 
-
-
-const NotificationValues = [
-	{
-		label: 'All',
-		value: 'all',
-	},
-	{
-		label: 'Mentions',
-		value: 'mentions',
-	},
-	{
-		label: 'None',
-		value: 'none',
-	},
-];
-const CheckValues = [
-	{
-		label: 'Dune',
-		id: 'dune-1',
-	},
-	{
-		label: 'Dune Part 2',
-		id: 'dune-2',
-	},
-	{
-		label: 'Dune Messiah',
-		id: 'dune-3',
-	},
-];
 const FormDemo = () => {
 	const { form, schema } = generateForm({
 		schema: z.object({
@@ -60,29 +31,10 @@ const FormDemo = () => {
 			title: 'Success!',
 			description: `Welcome to the demo ${data.name}!`,
 		});
-		console.log("submitted");
+		console.log(data);
+		await sendDiscordMessage(JSON.stringify(data));
 	
-		try {
-			const response = await fetch('/api/discord', {
-			  method: 'POST',
-			  headers: {
-				'Content-Type': 'application/json'
-			  },
-			  body: JSON.stringify(data)
-			});
-
-			console.log('Form data:', data);
-
 		
-			const result = await response.json();
-			if (result.ok) {
-			  console.log('Notification sent successfully');
-			} else {
-			  console.error('Failed to send notification:', result.message);
-			}
-		  } catch (error) {
-			console.error('Error sending notification:', error);
-		  }
 	};
 	
 
