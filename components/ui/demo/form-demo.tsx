@@ -10,7 +10,12 @@ import { useToast } from "@/components/ui/use-toast"
 import { sendDiscordMessage } from '@/app/_actions/discord';
 import Editor from '../editor';
 
-
+const stripHtmlTags = (str: string) => {
+	if (typeof str === 'string') {
+	  return str.replace(/<\/?[^>]+(>|$)/g, "");
+	}
+	return str;
+  }
 
 const FormDemo = () => {
 	const { form, schema } = generateForm({
@@ -33,7 +38,12 @@ const FormDemo = () => {
 			description: `Welcome to the demo ${data.name}!`,
 		});
 		console.log(data);
-		await sendDiscordMessage(JSON.stringify(data));
+
+		const cleanedData = {
+			...data,
+			editor: stripHtmlTags(data.editor)
+		  };
+		await sendDiscordMessage(cleanedData);
 	
 		
 	};
