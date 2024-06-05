@@ -59,29 +59,32 @@ const FormDemo = () => {
 		toast({
 			title: 'Success!',
 			description: `Welcome to the demo ${data.name}!`,
-	
 		});
-		console.log(data);
-        console.log("submitted")
-		
+		console.log("submitted");
+	
 		try {
-			const response = await fetch('/api/discord-notification', {
-				method: 'GET',
+			const response = await fetch('/api/discord', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json'
+			  },
+			  body: JSON.stringify(data)
 			});
 
+			console.log('Form data:', data);
+
+		
 			const result = await response.json();
 			if (result.ok) {
-				console.log('Notification sent successfully');
+			  console.log('Notification sent successfully');
 			} else {
-				console.error('Failed to send notification:', result.message);
+			  console.error('Failed to send notification:', result.message);
 			}
-		} catch (error) {
+		  } catch (error) {
 			console.error('Error sending notification:', error);
-		}
-
-
-
+		  }
 	};
+	
 
     
    
@@ -109,7 +112,7 @@ const FormDemo = () => {
 				
 
 				<div className='flex space-x-2'>
-					<Button type='submit' onClick={() => onSubmit(form.control)}>Submit</Button>
+					<Button type='submit' >Submit</Button>
 				</div>
 			</Form>
 		</div>
