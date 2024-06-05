@@ -14,14 +14,14 @@ import {
 
 const SubmissionModal = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen overflow-auto">
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button>Send Message</Button>
         </DialogTrigger>
-        <DialogContent className="w-full max-w-md mx-4 my-6 p-6 bg-white rounded-lg shadow-lg">
+        <DialogContent className="w-full max-w-md mx-4 md:mr-8 my-6 p-6 bg-white rounded-lg shadow-lg">
           <DialogHeader>
-            <DialogTitle>Message Zaid</DialogTitle>
+            <DialogTitle>Message Zaid.</DialogTitle>
             <DialogDescription>
               Fill out the form with your request.
             </DialogDescription>
