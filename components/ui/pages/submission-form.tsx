@@ -27,7 +27,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
   const { form, schema } = generateForm({
     schema: z.object({
       name: z.string().min(1),
-      editor: z.string().min(20),
+      editor: z.string().min(5),
       rating: z.number().min(1, { message: "First Name is required" }),
     }),
   });
