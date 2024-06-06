@@ -26,7 +26,6 @@ const SubmissionModal = () => {
               Fill out the form with your Request
             </DialogDescription>
           </DialogHeader>
-
           <SubmissionForm setOpen={setOpen} />
         </DialogContent>
       </Dialog>

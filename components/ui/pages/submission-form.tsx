@@ -9,6 +9,7 @@ import { Input } from "../input";
 import { useToast } from "@/components/ui/use-toast";
 import { sendDiscordMessage } from "@/app/_actions/discord";
 import Editor from "../editor";
+import StarRating from "./star-rating";
 
 const stripHtmlTags = (str: string) => {
   if (typeof str === "string") {
@@ -27,6 +28,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
     schema: z.object({
       name: z.string().min(1),
       editor: z.string().min(20),
+      rating: z.number().min(1, { message: "First Name is required" }),
     }),
   });
 
@@ -52,18 +54,17 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
   };
 
   return (
-    <div className= "overflow-auto">
+    <div className="overflow-auto">
       <Form
         form={form}
         onSubmit={form.handleSubmit(onSubmit)}
         className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground space-y-4 overflow-auto"
       >
         <Input label="Name" type="name" field="name" control={form.control} />
-        <Editor
-          label="Request Details"
-          field="editor"
-          control={form.control}
-        />
+
+        <StarRating label="Priority" control={form.control} name="rating" />
+
+        <Editor label="Request Details" field="editor" control={form.control} />
 
         <div className="flex space-x-2">
           <Button loading={loading} type="submit">
