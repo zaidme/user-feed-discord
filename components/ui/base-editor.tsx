@@ -56,7 +56,7 @@ const BaseEditor: React.FC<Props> = ({
 			attributes: {
 				//this styles the textbox only, not the text menu
 				class:
-					'placeholder:text-muted-foreground focus:outline-none border-t border-input px-3 py-2 body-text min-h-[65px]',
+					'placeholder:text-muted-foreground px-3 py-2 body-text min-h-[65px]',
 			},
 		},
 		onUpdate: ({ editor }) => {
@@ -79,7 +79,7 @@ const BaseEditor: React.FC<Props> = ({
 	return (
 		<div className={className}>
 			{label && <Label>{label}</Label>}
-			<div className='min-h-[80px] w-full rounded-md border border-input bg-background text-sm ring-offset-background focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'>
+			<div className='min-h-[80px] w-full rounded-md border border-input bg-background text-sm ring-offset-background disabled:cursor-not-allowed disabled:opacity-50'>
 				<div className='flex flex-wrap gap-x-1 gap-y-1 py-1 px-3'>
 					<ToolTip text='Heading 1' side='bottom'>
 						<div>
