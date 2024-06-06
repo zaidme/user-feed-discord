@@ -86,7 +86,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleHeading({ level: 1 }).run()
+									editor.chain().toggleHeading({ level: 1 }).run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('heading', { level: 1 })}
@@ -100,7 +100,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleHeading({ level: 2 }).run()
+									editor.chain().toggleHeading({ level: 2 }).run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('heading', { level: 2 })}
@@ -114,7 +114,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleHeading({ level: 3 }).run()
+									editor.chain().toggleHeading({ level: 3 }).run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('heading', { level: 3 })}
@@ -128,7 +128,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleBold().run()
+									editor.chain().toggleBold().run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('bold')}
@@ -142,7 +142,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleItalic().run()
+									editor.chain().toggleItalic().run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('italic')}
@@ -156,7 +156,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleUnderline().run()
+									editor.chain().toggleUnderline().run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('underline')}
@@ -188,7 +188,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleBulletList().run()
+									editor.chain().toggleBulletList().run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('bulletList')}
@@ -202,7 +202,7 @@ const BaseEditor: React.FC<Props> = ({
 							<Toggle
 								tabIndex={-1}
 								onPressedChange={() =>
-									editor.chain().focus().toggleOrderedList().run()
+									editor.chain().toggleOrderedList().run()
 								}
 								className='h-auto p-1'
 								pressed={editor.isActive('orderedList')}
