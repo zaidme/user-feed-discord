@@ -10,6 +10,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { sendDiscordMessage } from "@/app/_actions/discord";
 import Editor from "../editor";
 import StarRating from "./star-rating";
+import { ScrollArea } from "../scroll-area";
 
 const stripHtmlTags = (str: string) => {
   if (typeof str === "string") {
@@ -54,7 +55,9 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
   };
 
   return (
+    
     <div className="overflow-auto">
+      
       <Form
         form={form}
         onSubmit={form.handleSubmit(onSubmit)}
@@ -72,7 +75,9 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
           </Button>
         </div>
       </Form>
+      
     </div>
+  
   );
 };
 
