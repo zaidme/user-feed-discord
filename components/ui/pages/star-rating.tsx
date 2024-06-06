@@ -44,7 +44,9 @@ const StarRating = forwardRef<HTMLInputElement, StarRatingProps>(
                 <Star
                   onMouseEnter={() => setHover(ratingVal)}
                   onMouseLeave={() => setHover(0)}
-                  fill={ratingVal <= (hover || field.value) ? "#ffc107" : "#e4e5e9"}
+                  fill={
+                    ratingVal <= (hover || field.value) ? "#ffc107" : "#e4e5e9"
+                  }
                   className="transition-transform duration-300"
                 />
               </Label>
@@ -52,7 +54,9 @@ const StarRating = forwardRef<HTMLInputElement, StarRatingProps>(
           })}
         </div>
         {fieldState.error && (
-          <span className="text-red-500 text-sm">{"You need to choose a priority"}</span>
+          <span className="text-red-500 text-sm">
+            {"You need to choose a priority"}
+          </span>
         )}
       </>
     );
