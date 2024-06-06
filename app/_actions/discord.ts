@@ -9,7 +9,7 @@ export const sendDiscordMessage = async (data: {
     const { name, editor, rating } = data;
     const stars = Array(rating).fill(":star:").join(" ");
 
-    const message = ` ${stars}\n Name: ${name}\n  Message: ${editor}`;
+    const message = ` ${stars}\n Name: ${name}\n Message: ${editor}`;
 
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
