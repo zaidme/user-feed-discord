@@ -1,16 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import SubmissionForm from "./submission-form";
-import { Button } from "../button";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "../dialog";
 
 const SubmissionModal = () => {
  

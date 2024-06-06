@@ -51,16 +51,15 @@ const SubmissionForm = () => {
       editor: stripHtmlTags(data.editor),
     };
     await sendDiscordMessage(cleanedData);
-	setOpen(false)
+    setOpen(false);
     setLoading(false);
-	
   };
 
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>Send Message</DialogTrigger>
-        <DialogContent className="w-full max-w-md mx-4 my-6 p-6 bg-white rounded-lg shadow-lg">
+        <DialogContent className="w-full max-w-xs md:max-w-md mx-auto my-6 p-6 bg-white rounded-lg shadow-lg md:mx-auto sm:mx-4">
           <DialogHeader>
             <DialogTitle>Message Zaid</DialogTitle>
             <DialogDescription>
