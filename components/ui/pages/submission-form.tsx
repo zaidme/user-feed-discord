@@ -9,14 +9,7 @@ import { Input } from "../input";
 import { useToast } from "@/components/ui/use-toast";
 import { sendDiscordMessage } from "@/app/_actions/discord";
 import Editor from "../editor";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "../dialog";
+
 const stripHtmlTags = (str: string) => {
   if (typeof str === "string") {
     return str.replace(/<\/?[^>]+(>|$)/g, "");
@@ -24,8 +17,11 @@ const stripHtmlTags = (str: string) => {
   return str;
 };
 
-const SubmissionForm = () => {
-  const [open, setOpen] = useState(false);
+type SubmissionFormProps = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const SubmissionForm: React.FC<SubmissionFormProps> = ({ setOpen }) => {
   const [loading, setLoading] = useState(false);
   const { form, schema } = generateForm({
     schema: z.object({
@@ -56,42 +52,25 @@ const SubmissionForm = () => {
   };
 
   return (
-    <div>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger>Send Message</DialogTrigger>
-        <DialogContent className="w-full max-w-xs md:max-w-md mx-auto my-6 p-6 bg-white rounded-lg shadow-lg md:mx-auto sm:mx-4">
-          <DialogHeader>
-            <DialogTitle>Message Zaid</DialogTitle>
-            <DialogDescription>
-              Fill out the form with your Request
-            </DialogDescription>
-          </DialogHeader>
+    <div className= "overflow-auto">
+      <Form
+        form={form}
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground space-y-4 overflow-auto"
+      >
+        <Input label="Name" type="name" field="name" control={form.control} />
+        <Editor
+          label="Request Details"
+          field="editor"
+          control={form.control}
+        />
 
-          <Form
-            form={form}
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground space-y-4 overflow-auto"
-          >
-            <Input
-              label="Name"
-              type="name"
-              field="name"
-              control={form.control}
-            />
-            <Editor
-              label="Request Details"
-              field="editor"
-              control={form.control}
-            />
-
-            <div className="flex space-x-2">
-              <Button loading={loading} type="submit">
-                Submit
-              </Button>
-            </div>
-          </Form>
-        </DialogContent>
-      </Dialog>
+        <div className="flex space-x-2">
+          <Button loading={loading} type="submit">
+            Submit
+          </Button>
+        </div>
+      </Form>
     </div>
   );
 };
